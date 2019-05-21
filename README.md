@@ -1,4 +1,4 @@
-# **PHP-Assessment-Test**
+# **PHP Assessment Test**
 This is a **PHP** project using **MailChimp's RESTful API**. Follow these steps to do this project.
 
 - Create a new Mailchimp account (free account): https://login.mailchimp.com/signup/
