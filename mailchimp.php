@@ -191,13 +191,13 @@ return $result; // Return the result
 
 }
 
+//Comment out the functions you will not be using, in this case, I call create list function 
 
+create_list($create_list_data, $email, $api_key, $auth, $data_center); // Call create list function
 
-// create_list($create_list_data, $email, $api_key, $auth, $data_center); // Call create list function
+//add_new_user($add_new_user_data, $email, $api_key, $list_id, $auth); //Call add new user function 
 
-// add_new_user($add_new_user_data, $email, $api_key, $list_id, $auth); 
-
-send_campaign($send_campaign_data, $email, $api_key, $auth, $data_center, $list_id); 
+//send_campaign($send_campaign_data, $email, $api_key, $auth, $data_center, $list_id); // Call sending campaign function
 
 
 
