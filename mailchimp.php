@@ -3,7 +3,7 @@
 
 $email = 'claudevernetmichel22@gmail.com'; // My email 
 
-$list_id = '6c240604ff'; // After creating your Mailchimp list, this id will be generated and then you will use it to add new user to your list or to send campaigns to all users in your mailchimp list. To find it, go to https://usX.api.mailchimp.com/playground/ where X is your data center number. Example : us20 
+$list_id = 'xxxxxxxxxx'; // After creating your Mailchimp list, this id will be generated and then you will use it to add new user to your list or to send campaigns to all users in your mailchimp list. To find it, go to https://usX.api.mailchimp.com/playground/ where X is your data center number. Example : us20 
 
 $api_key = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-usX'; // This is the API-key that you will find in your Mailchimp account 
 
