@@ -201,4 +201,12 @@ create_list($create_list_data, $email, $api_key, $auth, $data_center); // Call c
 
 
 
+// Why did I build the system in such structure?
+// Divide the code in three sections(functions) makes it easier to read and has a better structure. It consists of 3 sections
+//1- Creating a new list where I had to find the correct URL, initialize the session and send out the JSON data.
+//2- Adding new users to the list where I also had to find the proper URL and this time I also had to find the list_id which is required in order to add new users
+//3- Sending out a campaign which has similar idea with adding new users, they both use list_id but different request body parameters.
+
 ?>
+
+
