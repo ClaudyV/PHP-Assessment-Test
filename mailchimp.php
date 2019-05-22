@@ -14,7 +14,8 @@ $list_id = 'xxxxxxxxxx'; /* After creating your Mailchimp list, this id will be 
 and then you will use it to add new user to your list or to send campaigns to all users in your mailchimp list.
 To find it, go to https://usX.api.mailchimp.com/playground/ where X is your data center number. Example : us20 */
 
-$api_key = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-usX'; // This is the API-key that you will find in your Mailchimp account 
+$api_key = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-usX'; /* This is the API-key that you will find in your Mailchimp account,
+it should not be visible publicly for security purposes */
 
 $auth = base64_encode( 'user:'.$api_key ); // Use base64_encode to encode the API-key
 
@@ -209,13 +210,10 @@ return $result; // Return the result
 }
 
 
-
 create_list($create_list_data, $email, $auth); // Call create list function
 
 //add_new_user($add_new_user_data, $email, $list_id, $auth); 
 
 //send_campaign($send_campaign_data, $email, $auth, $list_id); 
-
-
 
 ?>
