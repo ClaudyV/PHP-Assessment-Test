@@ -3,13 +3,14 @@
 
 $email = 'claudevernetmichel22@gmail.com'; // My email 
 
-$list_id = 'xxxxxxxxxx'; // After creating your Mailchimp list, this id will be generated and then you will use it to add new user to your list or to send campaigns to all users in your mailchimp list. To find it, go to https://usX.api.mailchimp.com/playground/ where X is your data center number. Example : us20 
+$list_id = 'xxxxxxxxxx'; /* After creating your Mailchimp list, this id will be generated
+and then you will use it to add new user to your list or to send campaigns to all users in your mailchimp list.
+To find it, go to https://usX.api.mailchimp.com/playground/ where X is your data center number. Example : us20 */
 
 $api_key = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-usX'; // This is the API-key that you will find in your Mailchimp account 
 
 $auth = base64_encode( 'user:'.$api_key ); // Use base64_encode to encode the API-key
 
-$data_center = substr($api_key,strpos($api_key,'-')+1);
 
 $create_list_data = array( // The following parameters are the request body parameters for creating list 
                 'name'        => 'Client list', // Name is required : *name 
@@ -62,7 +63,7 @@ $send_campaign_data = array( // The following parameters are the request body pa
 );
 
 
-function create_list($create_list_data, $email, $api_key, $auth, $data_center){ // This function creates the Mailchimp list, it uses "create_list_data" to create our JSON data. All of this is possible because of this url : 'https://us20.api.mailchimp.com/3.0/lists' which allows us to create the list. After that we encode the JSON data, we use cUrl to create the session, at the end we've got the result. 
+function create_list($create_list_data, $email, $auth){ // This function creates the Mailchimp list, it uses "create_list_data" to create our JSON data. All of this is possible because of this url : 'https://us20.api.mailchimp.com/3.0/lists' which allows us to create the list. After that we encode the JSON data, we use cUrl to create the session, at the end we've got the result. 
  
  
 $url = 'https://us20.api.mailchimp.com/3.0/lists'; // This URL is used for creating a new mailchimp list, documentation: https://developer.mailchimp.com/documentation/mailchimp/reference/lists/#create-post_lists
@@ -103,7 +104,7 @@ return $result; // Return the result
 
 }
 
-function add_new_user($add_new_user_data, $email, $api_key, $list_id, $auth){ //This function adds new users to your Mailchimp list, again it is possible via this url: 'https://us20.api.mailchimp.com/3.0/lists/{list_id}' which allows us to add users. We also use cUrl to initialize the session and at the end new users are added to Mailchimp list. 
+function add_new_user($add_new_user_data, $email, $list_id, $auth){ //This function adds new users to your Mailchimp list, again it is possible via this url: 'https://us20.api.mailchimp.com/3.0/lists/{list_id}' which allows us to add users. We also use cUrl to initialize the session and at the end new users are added to Mailchimp list. 
 
 
 $url = 'https://us20.api.mailchimp.com/3.0/lists/'.$list_id; // // This URL is used for adding new users in your list. Documentation: https://developer.mailchimp.com/documentation/mailchimp/reference/lists/#create-post_lists_list_id
@@ -148,7 +149,7 @@ return $result;
 }
 
 
-function send_campaign($send_campaign_data, $email, $api_key, $auth, $data_center, $list_id){//This funtion sends campaigns to users in your Mailchimp list, again, that is possible via this url: https://us20.api.mailchimp.com/3.0/campaigns' which allows us to send campaigns. We also use cUrl to initialize the session and post our JSON data. At the end, campaigns are sent to all users in Mailchimps list. 
+function send_campaign($send_campaign_data, $email, $auth, $list_id){//This funtion sends campaigns to users in your Mailchimp list, again, that is possible via this url: https://us20.api.mailchimp.com/3.0/campaigns' which allows us to send campaigns. We also use cUrl to initialize the session and post our JSON data. At the end, campaigns are sent to all users in Mailchimps list. 
  
 $url = 'https://us20.api.mailchimp.com/3.0/campaigns'; // This URL is used for creating a new campaign to all users in your list, documentation: hhttps://developer.mailchimp.com/documentation/mailchimp/reference/campaigns/
  
@@ -191,22 +192,14 @@ return $result; // Return the result
 
 }
 
-//Comment out the functions you will not be using, in this case, I call create list function 
-
-create_list($create_list_data, $email, $api_key, $auth, $data_center); // Call create list function
-
-//add_new_user($add_new_user_data, $email, $api_key, $list_id, $auth); //Call add new user function 
-
-//send_campaign($send_campaign_data, $email, $api_key, $auth, $data_center, $list_id); // Call sending campaign function
 
 
+// create_list($create_list_data, $email, $auth); // Call create list function
 
-// Why did I build the system in such structure?
-// Divide the code in three sections(functions) makes it easier to read and has a better structure. It consists of 3 sections
-//1- Creating a new list where I had to find the correct URL, initialize the session and send out the JSON data.
-//2- Adding new users to the list where I also had to find the proper URL and this time I also had to find the list_id which is required in order to add new users
-//3- Sending out a campaign which has similar idea with adding new users, they both use list_id but different request body parameters.
+// add_new_user($add_new_user_data, $email, $list_id, $auth); 
+
+send_campaign($send_campaign_data, $email, $auth, $list_id); 
+
+
 
 ?>
-
-
