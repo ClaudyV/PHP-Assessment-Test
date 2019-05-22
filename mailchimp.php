@@ -121,7 +121,8 @@ again it is possible via this url: 'https://us20.api.mailchimp.com/3.0/lists/{li
 which allows us to add users. We also use cUrl to initialize the session and at the end new users are added to Mailchimp list.*/ 
 
 
-$url = 'https://us20.api.mailchimp.com/3.0/lists/'.$list_id; // // This URL is used for adding new users in your list. Documentation: https://developer.mailchimp.com/documentation/mailchimp/reference/lists/#create-post_lists_list_id
+$url = 'https://us20.api.mailchimp.com/3.0/lists/'.$list_id; /* This URL is used for adding new users in your list.
+Documentation: https://developer.mailchimp.com/documentation/mailchimp/reference/lists/#create-post_lists_list_id */
 
 
 $jsonString = json_encode($add_new_user_data); // json_encode converts $data to JSON code 
