@@ -201,11 +201,11 @@ return $result; // Return the result
 
 
 
-// create_list($create_list_data, $email, $auth); // Call create list function
+create_list($create_list_data, $email, $auth); // Call create list function
 
-// add_new_user($add_new_user_data, $email, $list_id, $auth); 
+//add_new_user($add_new_user_data, $email, $list_id, $auth); 
 
-send_campaign($send_campaign_data, $email, $auth, $list_id); 
+//send_campaign($send_campaign_data, $email, $auth, $list_id); 
 
 
 
