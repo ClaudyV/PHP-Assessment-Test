@@ -8,11 +8,11 @@ they both use list_id but different request body parameters.*/
 
 $email = 'claudevernetmichel22@gmail.com'; // My email 
 
-$list_id = 'd3ab1074d9'; /* After creating your Mailchimp list, this id will be generated
+$list_id = 'xxxxxxxxxx'; /* After creating your Mailchimp list, this id will be generated
 and then you will use it to add new user to your list or to send campaigns to all users in your mailchimp list.
 To find it, go to https://usX.api.mailchimp.com/playground/ where X is your data center number. Example : us20 */
 
-$api_key = '0a15e728ba8b4025793163e5367b4e22-us20'; /* This is the API-key that you will find in your Mailchimp account, 
+$api_key = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-usX'; /* This is the API-key that you will find in your Mailchimp account, 
 it shouldnot be publicly visible because of security purposes */
 
 $auth = base64_encode( 'user:'.$api_key ); // Use base64_encode to encode the API-key
