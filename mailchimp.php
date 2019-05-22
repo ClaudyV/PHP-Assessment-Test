@@ -103,17 +103,6 @@ CURLOPT_POSTFIELDS => $jsonString, // Post our JSON data
 
 ));
 
-
-$result = curl_exec($curl); // Take URL and pass it to the browser
-
-$info = curl_getinfo($curl);  // info about cURL session 
-
-$httpCode = curl_getinfo($curl , CURLINFO_HTTP_CODE); //Output HTTP_CODE info
-  
-curl_close($curl); // close cURL resource, and free up system resources
-
-return $result; // Return the result 
-
 }
 
 function add_new_user($add_new_user_data, $email, $list_id, $auth){ /*This function adds new users to your Mailchimp list,
@@ -153,14 +142,6 @@ curl_setopt_array($curl, array(
 
 ));
 
-$result = curl_exec($curl); // Take URL and pass it to the browser
-
-$err = curl_error($curl); // cURl error 
-
-curl_close($curl); // close cURL resource, and free up system resources
-
-return $result; 
-
 }
 
 
@@ -195,18 +176,7 @@ curl_setopt_array($curl, array(
   CURLOPT_POSTFIELDS => $jsonString, // Post our JSON data 
 
 ));
-
-
-$result = curl_exec($curl); // Take URL and pass it to the browser
-
-$info = curl_getinfo($curl);  // info about cURL session 
-
-$httpCode = curl_getinfo($curl , CURLINFO_HTTP_CODE); //Output HTTP_CODE info
-
-  
-curl_close($curl); // close cURL resource, and free up system resources
-
-return $result; // Return the result 
+ 
 
 }
 
